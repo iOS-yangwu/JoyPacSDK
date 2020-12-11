@@ -80,8 +80,9 @@ False, 调用JoyPac SDK 重新加载广告并且提示用户“广告正在加�
 ### 3 API 说明
 给到游戏调用的 JoyPac 类中我们定义了以下接口
 
+Init sdk
+
     /**
-    Init sdk
     JoyPacAppId: JoyPac AppID
     adjustKey: Adjust 初始化所需 Key
     GAKey: GA 初始化所需 key
@@ -91,9 +92,10 @@ False, 调用JoyPac SDK 重新加载广告并且提示用户“广告正在加�
     public void InitSDK(string adjustToken, string GAKey, string GASecret);
     public void InitSDK(string JoyPacAppId, string adjustKey, string GAKey, string GASecret);
 
+Tracking
 
     /**
-    Tracking
+    
     AdjustEventName: Adjust 事件名称
     GAEventName: GA 事件名称
     eventValue: 事件数值
@@ -103,10 +105,10 @@ False, 调用JoyPac SDK 重新加载广告并且提示用户“广告正在加�
     public void TrackEvent(string GAEventName, float eventValue);
     public void TrackEvent(string AdjustEventName, string GAEventName, float eventValue);
 
-
     若想使用GA提供的事件追踪接口，请参照文档：
-
     https://gameanalytics.com/docs/item/unity-sdk/#event-tracking
+    
+Ads
     
     
 
