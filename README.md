@@ -70,9 +70,12 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
 
 3) If the Admob advertising platform SDK is imported, you also need to add GADApplicationIdentifier to the app’s Info.plist to configure Admob’s AppID.
 
-    <key>GADApplicationIdentifier</key>
-    <string>ca-app-pub-9488501426181082/7319780494</string>
-    <key>GADIsAdManagerApp</key> <true/>
+
+       <key>GADApplicationIdentifier</key>
+       <string>ca-app-pub-9488501426181082/7319780494</string>
+       <key>GADIsAdManagerApp</key> <true/>
+    
+    
     
     
 ## API 
