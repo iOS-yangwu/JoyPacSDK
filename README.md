@@ -1,54 +1,44 @@
-# JoyPacSDK
-简介
+# JoyPacSDK Unity3D Integration
+## Introduction
 
-JoyPac聚合SDK主要目的是帮助开发者简化接入游戏所需SDK流程。JoyPacSDK聚合了AdjustSDK、GameAnalyticsSDK，一旦在应用中部署了JoyPacSDK，就可以在相应的第三方管理后台查看相关数据。
-### 1 支持功能
+The main purpose of JoyPacSDK is to help developers simplify the SDK process required to access games. JoyPacSDK aggregates AdjustSDK, GameAnalyticsSDK, and TopOnSDK. Once JoyPacSDK is deployed in the application, you can view relevant data in the corresponding third-party management background.
 
-统计分析：用户分析、留存分析、终端属性
+This document describes how to integrate the JoyPac unity3d SDK.
 
-归因：将应用用户与推动其安装的来源进行匹配，这些归因数据可以用来监测推广效果、开展高效再营销推广以及优化广告素材
+JoyPac supports ad forms as follows in Unity 3D platform:
 
-事件追踪：在游戏代码中触发与IAP、广告收入、虚拟货币、等级进展、错误相关、或针对游戏的特定情况，使用自定义事件
-
-在线参数：通过管理平台配置自定义参数后，服务端API下发至SDK，SDK将通过接口传递参数
-
-广告：
-
-### 1.1 SDK架构
-
-### 1.2 设计模块
-设计需求：
-
-1、调用简便
-
-2、针对不同平台（iOS/Android）的接口实现
-
-具体细节
-
-1、游戏客户端的所有接口调用是通过 JoyPac 类
-
-2、JoyPac 类会根据当前运行平台的不同，调用不同平台上的实现逻辑
-
-3、这些不同平台上的实现逻辑会跨平台调用原生环境的接口
-
-4、原生环境所有的信息数据发送给JoyPacNotify类
-
-5、JoyPacNotify类将相关数据转发给JoyPac 类
-
-6、JoyPac 类再将数据处理后反馈给游戏客户端
+ |Ads Form | Introduction |
+ | ------ | ------ |
+ |Video | Video Ads, with UI |
+ |Interstitial | Interstitial Ads，with UI |
+ |Banner | Banner Ads，with UI |
 
 
-### 2 配置
-#### 2.1 基础配置
+## Support Function
 
-在Unity编辑器中打开项目，转到Assets → Import Package → Custom Package并选择下载的Unity Package包
+Statistical analysis: user analysis, retention analysis, terminal attributes
 
-JoyPac提供三个Package：GA_SDK_UNITY.unitypackage、Adjust_v4.23.2.unitypackage、JoyPac.unitypackage
+Attribution: Matching app users with the sources that drive their installations. These attribution data can be used to monitor promotion effects, carry out efficient remarketing promotion, and optimize creatives
 
-其中 GA_SDK_UNITY.unitypackage、Adjust_v4.23.2.unitypackage为Tracking/统计包,JoyPac.unitypackage为广告包,按需导入即可
+Event tracking: Trigger custom events related to IAP, advertising revenue, virtual currency, level progress, errors, or specific situations of the game in the game code
 
-#### 2.2 广告相关
-1  导入基础核心框架（iOS）
+Online parameters: After configuring custom parameters through the management platform, the server API will be sent to the SDK, and the SDK will pass the parameters through the interface
+
+Advertising: Based on TopOnSDK
+
+
+## Configuration
+### Basic configuration
+
+
+Open the project in the Unity editor, go to Assets → Import Package → Custom Package and select the downloaded Unity Package package
+
+JoyPac.Package contains: GA_SDK_UNITY.unitypackage, Adjust_v4.23.2.unitypackage, JoyPac.unitypackage
+
+Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracking statistical packages, and the rest are Ads packages
+
+### Advertising related
+1 Introduce the basic core framework in Xcode
         
         AVFoundation.framework
         Accelerate.framework
@@ -72,35 +62,20 @@ JoyPac提供三个Package：GA_SDK_UNITY.unitypackage、Adjust_v4.23.2.unitypack
         libxml2.tbd
         libz.tbd
         
-2 iOS 配置Build Settings 和 Info.plist
+2 Xcode configuration Build Settings and Info.plist
 
-1) 在 Xcode中, 点击到 Build Settings, 搜索 Other Linker Flags 然后添加 -ObjC(这里的字母O和字母C需要大写), 注意 Linker Flags 是区分大小写的
+1) In Xcode, click to Build Settings, search for Other Linker Flags and add -ObjC (here the letter O and letter C need to be capitalized), note that Linker Flags  are case sensitive
 
-2) 在您app的Info.plist中添加 NSAllowsArbitraryLoads 禁用ATS限制。
+2) Add NSAllowsArbitraryLoads to your app’s Info.plist to disable ATS restrictions
 
-3）如果导入了Admob广告平台SDK，那么还需要在app的Info.plist中添加 GADApplicationIdentifier 配置Admob的AppID。
+3）If the Admob advertising platform SDK is imported, you also need to add GADApplicationIdentifier to the app’s Info.plist to configure Admob’s AppID.
 
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-9488501426181082/7319780494</string>
     <key>GADIsAdManagerApp</key> <true/>
     
     
-3 广告流程建议
-
-我们建议以下图所示流程来集成广告:
-
-应用启动时初始化 JoyPac SDK
-
-调用JoyPac SDK加载广告loadADWithUnitID
-
-应用需要展示广告时，判断isReady
-
-True, 展示广告。收到广告关闭回调后，重新加载广告。
-
-False, 调用JoyPac SDK 重新加载广告并且提示用户“广告正在加载中”
-
-### 3 API 说明
-给到游戏调用的 JoyPac 类中我们定义了以下接口
+### API 
 
 Init sdk
 
