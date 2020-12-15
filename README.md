@@ -117,7 +117,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowRewardVideo("Your UnitID");
         }
     }
-### Impletemente RewardVideo Listener
+### 5.4 Impletemente RewardVideo Listener
 
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdLoaded += onSetRewardListener_onRewardedVideoAdLoaded;
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdFailedToLoad += onSetRewardListener_onRewardedVideoAdFailedToLoad;
