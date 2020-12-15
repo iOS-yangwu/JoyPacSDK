@@ -1,5 +1,5 @@
 # JoyPacSDK Unity3D Integration
-## Introduction
+## 1 Introduction
 
 The main purpose of JoyPacSDK is to help developers simplify the SDK process required to access games. JoyPacSDK aggregates AdjustSDK, GameAnalyticsSDK, and TopOnSDK. Once JoyPacSDK is deployed in the application, you can view relevant data in the corresponding third-party management background.
 
@@ -14,7 +14,7 @@ JoyPac supports ad forms as follows in Unity 3D platform:
  |Banner | Banner Ads，with UI |
 
 
-## Support Function
+## 2 Support Function
 
 Statistical analysis: user analysis, retention analysis, terminal attributes
 
@@ -27,8 +27,8 @@ Online parameters: After configuring custom parameters through the management pl
 Advertising: Based on TopOnSDK
 
 
-## Configuration
-### Basic configuration
+## 3 Configuration
+### 3.1 Basic configuration
 
 
 Open the project in the Unity editor, go to Assets → Import Package → Custom Package and select the downloaded Unity Package package
@@ -37,8 +37,8 @@ JoyPac.Package contains: GA_SDK_UNITY.unitypackage, Adjust_v4.23.2.unitypackage,
 
 Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracking statistical packages, and the rest are Ads packages
 
-### Advertising related
-1 Introduce the basic core framework in Xcode
+### 3.2 Advertising related
+#### 3.2.1 Introduce the basic core framework in Xcode
         
         AVFoundation.framework
         Accelerate.framework
@@ -62,7 +62,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
         libxml2.tbd
         libz.tbd
         
-2 Xcode configuration Build Settings and Info.plist
+#### 3.2.2 Xcode configuration Build Settings and Info.plist
 
 1) In Xcode, click to Build Settings, search for Other Linker Flags and add -ObjC (here the letter O and letter C need to be capitalized), note that Linker Flags  are case sensitive
 
@@ -78,42 +78,50 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
     
     
     
-## API 
+## 4 API 
 
 |API | Parameter | Description |
 | ------ | ------ |------ |
 |InitSDK | string JoyPacAppID | It needs to be obtained after creating an application in the JoyPac background |
 |InitSDK | string adjustToken, string GAKey, string GASecret | AdjustToken, GAKey and GASecret |
-|InitSDK | string JoyPacAppID,string adjustToken,string GAKey,string GASecret | JoyPacAppID, AdjustToken, GAKey and GASecret|
+|InitSDK | string JoyPacAppID,string adjustToken,string GAKey,string GASecret | JoyPacAppID, AdjustToken, GAKey and GASecret |
+|SetLogEnable | bool enable | Set whether there is Debug log output |
 
 
-    /**
-    JoyPacAppId: JoyPac AppID
-    adjustKey: Adjust 初始化所需 Key
-    GAKey: GA 初始化所需 key
-    GASecret: GA 初始化所需 secret
-    */
-    public void InitSDK(string JoyPacAppID);
-    public void InitSDK(string adjustToken, string GAKey, string GASecret);
-    public void InitSDK(string JoyPacAppId, string adjustKey, string GAKey, string GASecret);
+## 4.1 Sample code
 
-Tracking
+    JoyPac.Instance().SetLogEnable(true);
+    JoyPac.Instance().InitSDK("004ac97c41", "qetw4jo08iss", "5b7b3eb6d9092d71619615d44b497ab1", "7d20ef439c720d168afc0d8f5df95d486ccacbf6");
 
-    /**
-    
-    AdjustEventName: Adjust 事件名称
-    GAEventName: GA 事件名称
-    eventValue: 事件数值
-    */
+## 5 Integrate RewardVideo Ad
+### 5.1 API
 
-    public void TrackEvent(string AdjustEventName);
-    public void TrackEvent(string GAEventName, float eventValue);
-    public void TrackEvent(string AdjustEventName, string GAEventName, float eventValue);
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|LoadRewardVideo | string unitId | Load ad |
+|IsReadyRewardVideo | string unitId | Determine whether there is an ad cache |
+|ShowRewardVideo | string unitId | Show ad |
 
-    若想使用GA提供的事件追踪接口，请参照文档：
-    https://gameanalytics.com/docs/item/unity-sdk/#event-tracking
-    
-Ads
-    
-    
+### 5.2 Load RewardVideo Ad
 
+    public void loadRV()
+    {
+      JoyPac.Instance().LoadRewardVideo("Your UnitID");
+    }
+
+### 5.3 Show RewardVideo Ad
+    public void showRV()
+    {
+       if (JoyPac.Instance().IsReadyRewardVideo("Your UnitID"))
+        {
+            JoyPac.Instance().ShowRewardVideo("Your UnitID");
+        }
+    }
+### Impletemente RewardVideo Listener
+
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdLoaded += onSetRewardListener_onRewardedVideoAdLoaded;
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdFailedToLoad += onSetRewardListener_onRewardedVideoAdFailedToLoad;
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdClosed += onSetRewardListener_onRewardedVideoAdClosed;
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoStarted += onSetRewardListener_onRewardedVideoStarted;
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdEnd += onSetRewardListener_onRewardedVideoAdEnd;
+    JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoDidRewardedSuccess += onSetRewardListener_onRewardedVideoDidRewardedSuccess;
