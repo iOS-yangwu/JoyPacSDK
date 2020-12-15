@@ -245,3 +245,15 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
        JoyPac.Instance().TrackEvent(adjustEventName,GAEventName,GAEventValue);
     }
   
+## 10 OnlineParameter
+### 10.1 Impletemente OnlineParameter Listener
+
+    JoyPacUniversalFunc.onGetOnlineParameter += onGetOnlineParameter;
+    
+### 10.2 Sample code
+
+    public void onGetOnlineParameter(string jsonString)
+    {
+      Debug.Log("onGetOnlineParameter" + jsonString );
+     }
+
