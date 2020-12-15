@@ -18,13 +18,13 @@ JoyPac supports ad forms as follows in Unity 3D platform:
 
 Statistical analysis: user analysis, retention analysis, terminal attributes
 
-Attribution: Matching app users with the sources that drive their installations. These attribution data can be used to monitor promotion effects, carry out efficient remarketing promotion, and optimize creatives
+Attribution: Matching app users with the sources that drive their installations. These attribution data can be used to monitor promotion effects, carry out efficient remarketing promotion, and optimize creatives.
 
-Event tracking: Trigger custom events related to IAP, advertising revenue, virtual currency, level progress, errors, or specific situations of the game in the game code
+Event tracking: Trigger custom events related to IAP, advertising revenue, virtual currency, level progress, errors, or specific situations of the game in the game code.
 
-Online parameters: After configuring custom parameters through the management platform, the server API will be sent to the SDK, and the SDK will pass the parameters through the interface
+Online parameters: After configuring custom parameters through the management platform, the server API will be sent to the SDK, and the SDK will pass the parameters through the interface.
 
-Advertising: Based on TopOnSDK
+Advertising: Based on TopOnSDK.
 
 
 ## 3 Configuration
@@ -64,9 +64,9 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
         
 #### 3.2.2 Xcode configuration Build Settings and Info.plist
 
-1) In Xcode, click to Build Settings, search for Other Linker Flags and add -ObjC (here the letter O and letter C need to be capitalized), note that Linker Flags  are case sensitive
+1) In Xcode, click to Build Settings, search for Other Linker Flags and add -ObjC (here the letter O and letter C need to be capitalized), note that Linker Flags  are case sensitive.
 
-2) Add NSAllowsArbitraryLoads to your app’s Info.plist to disable ATS restrictions
+2) Add NSAllowsArbitraryLoads to your app’s Info.plist to disable ATS restrictions.
 
 3) If the Admob advertising platform SDK is imported, you also need to add GADApplicationIdentifier to the app’s Info.plist to configure Admob’s AppID.
 
@@ -247,7 +247,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
   
 ## 10 OnlineParameter & ABTest
 
-According to the configuration in the background of JoyPac, the server performs the streaming, and you can get different parameters for abtest experiment
+According to the configuration in the background of JoyPac, the server performs the streaming, and you can get different parameters for abtest experiment.
 
 ### 10.1 Impletemente OnlineParameter Listener
 
