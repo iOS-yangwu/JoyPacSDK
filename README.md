@@ -205,14 +205,14 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
 |HideNativeBanner |  | hide native banner |
 |RemoveNativeBanner |  | remove native banner |
 
-### 8.2 Load Banner Ad
+### 8.2 Load Native Banner Ad
 
     public void loadNativeBanner()
     {
       JoyPac.Instance().LoadNativeBanner("Your UnitID");
     }
 
-### 8.3 Show Banner Ad
+### 8.3 Show Native Banner Ad
     public void showNativeBanner()
     {
        if (JoyPac.Instance().IsReadyNativeBanner("Your UnitID"))
@@ -220,7 +220,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowNativeBanner("Your UnitID", JoyPacAdManager.JoyPacBannerAlign.BannerAlignBottom | JoyPacAdManager.JoyPacBannerAlign.BannerAlignHorizontalCenter);
         }
     }
-### 8.4 Impletemente Banner Ad Listener
+### 8.4 Impletemente Native Banner Ad Listener
 
     JoyPacUniversalFunc.onSetNativeBannerListener_onAdLoaded += onSetNativeBannerListener_onAdLoaded;
     JoyPacUniversalFunc.onSetNativeBannerListener_onShowSuccess += onSetBNativeannerListener_onShowSuccess;
