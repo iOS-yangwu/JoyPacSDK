@@ -245,7 +245,10 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
        JoyPac.Instance().TrackEvent(adjustEventName,GAEventName,GAEventValue);
     }
   
-## 10 OnlineParameter
+## 10 OnlineParameter & ABTest
+
+According to the configuration in the background of JoyPac, the server performs the streaming, and you can get different parameters for abtest experiment
+
 ### 10.1 Impletemente OnlineParameter Listener
 
     JoyPacUniversalFunc.onGetOnlineParameter += onGetOnlineParameter;
@@ -255,5 +258,5 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
     public void onGetOnlineParameter(string jsonString)
     {
       Debug.Log("onGetOnlineParameter" + jsonString );
-     }
+    }
 
