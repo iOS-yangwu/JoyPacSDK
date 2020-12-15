@@ -125,3 +125,104 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoStarted += onSetRewardListener_onRewardedVideoStarted;
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdEnd += onSetRewardListener_onRewardedVideoAdEnd;
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoDidRewardedSuccess += onSetRewardListener_onRewardedVideoDidRewardedSuccess;
+
+
+## 6 Interstitial Ad
+### 6.1 API
+
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|LoadInterstitial | string unitId | Load ad |
+|IsReadyInterstitial | string unitId | Determine whether there is an ad cache |
+|ShowInterstitial | string unitId | Show ad |
+
+### 6.2 Load Interstitial Ad
+
+    public void loadInterstitial()
+    {
+      JoyPac.Instance().LoadInterstitial("Your UnitID");
+    }
+
+### 6.3 Show Interstitial Ad
+    public void showInterstitial()
+    {
+       if (JoyPac.Instance().IsReadyInterstitial("Your UnitID"))
+        {
+            JoyPac.Instance().ShowInterstitial("Your UnitID");
+        }
+    }
+### 6.4 Impletemente Interstitial Listener
+
+    JoyPacUniversalFunc.onSetInterstitialListener_onAdLoaded += onSetInterstitialListener_onAdLoaded;
+    JoyPacUniversalFunc.onSetInterstitialListener_onAdFailedToLoad += onSetInterstitialListener_onAdFailedToLoad;
+    JoyPacUniversalFunc.onSetInterstitialListener_onAdClosed += onSetInterstitialListener_onAdClosed;
+    JoyPacUniversalFunc.onSetInterstitialListener_onShowSuccess += onSetInterstitialListener_onShowSuccess;
+    JoyPacUniversalFunc.onSetInterstitialListener_onStartPlayVideo += onSetInterstitialListener_onStartPlayVideo;
+    JoyPacUniversalFunc.onSetInterstitialListener_onEndPlaying += onSetInterstitialListener_onEndPlaying;
+    
+    
+## 7 Banner Ad
+### 7.1 API
+
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|LoadBanner | string unitId | Load ad |
+|IsReadyBanner | string unitId | Determine whether there is an ad cache |
+|ShowBanner | string untId, JoyPacAdManager.JoyPacBannerAlign align | Show ad with direction |
+|HideBanner |  | hide banner |
+|RemoveBanner |  | remove banner |
+
+### 7.2 Load Banner Ad
+
+    public void loadBanner()
+    {
+      JoyPac.Instance().LoadBanner("Your UnitID");
+    }
+
+### 7.3 Show Banner Ad
+    public void showBanner()
+    {
+       if (JoyPac.Instance().IsReadyBanner("Your UnitID"))
+        {
+            JoyPac.Instance().ShowBanner("Your UnitID", JoyPacAdManager.JoyPacBannerAlign.BannerAlignBottom | JoyPacAdManager.JoyPacBannerAlign.BannerAlignHorizontalCenter);
+        }
+    }
+### 7.4 Impletemente Banner Listener
+
+    JoyPacUniversalFunc.onSetBannerListener_onAdLoaded += onSetBannerListener_onAdLoaded;
+    JoyPacUniversalFunc.onSetBannerListener_onShowSuccess += onSetBannerListener_onShowSuccess;
+    JoyPacUniversalFunc.onSetBannerListener_onClick += onSetBannerListener_onClick;
+    
+    
+    
+## 8 Native Banner Ad
+### 8.1 API
+
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|LoadNativeBanner | string unitId | Load ad |
+|IsReadyNativeBanner | string unitId | Determine whether there is an ad cache |
+|ShowNativeBanner | string untId, JoyPacAdManager.JoyPacBannerAlign align | Show ad with direction |
+|HideNativeBanner |  | hide native banner |
+|RemoveNativeBanner |  | remove native banner |
+
+### 8.2 Load Banner Ad
+
+    public void loadNativeBanner()
+    {
+      JoyPac.Instance().LoadNativeBanner("Your UnitID");
+    }
+
+### 8.3 Show Banner Ad
+    public void showNativeBanner()
+    {
+       if (JoyPac.Instance().IsReadyNativeBanner("Your UnitID"))
+        {
+            JoyPac.Instance().ShowNativeBanner("Your UnitID", JoyPacAdManager.JoyPacBannerAlign.BannerAlignBottom | JoyPacAdManager.JoyPacBannerAlign.BannerAlignHorizontalCenter);
+        }
+    }
+### 8.4 Impletemente Banner Listener
+
+    JoyPacUniversalFunc.onSetNativeBannerListener_onAdLoaded += onSetNativeBannerListener_onAdLoaded;
+    JoyPacUniversalFunc.onSetNativeBannerListener_onShowSuccess += onSetBNativeannerListener_onShowSuccess;
+    JoyPacUniversalFunc.onSetNativeBannerListener_onClick += onSetNativeBannerListener_onClick;
