@@ -237,7 +237,6 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
 |TrackEvent | string AdjustEventName, string GAEventName, float GAEventValue | AdjustEventName, GAEventName,  GAEventValue |
 |JoyPacEvent | string event_sort, string event_type, string event_position, string event_extra | Event classification |
 
-|JoyPacEvent | string event_sort, string event_type, string event_position, string event_extra |  Event classification |
 
 ### 9.2 Sample Code
 
