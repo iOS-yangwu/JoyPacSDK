@@ -117,7 +117,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowRewardVideo("Your UnitID");
         }
     }
-### 5.4 Impletemente RewardVideo Listener
+### 5.4 Impletemente RewardVideo Ad Listener
 
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdLoaded += onSetRewardListener_onRewardedVideoAdLoaded;
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoAdFailedToLoad += onSetRewardListener_onRewardedVideoAdFailedToLoad;
@@ -127,7 +127,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
     JoyPacUniversalFunc.onSetRewardListener_onRewardedVideoDidRewardedSuccess += onSetRewardListener_onRewardedVideoDidRewardedSuccess;
 
 
-## 6 Interstitial Ad
+## 6 Integrate Interstitial Ad
 ### 6.1 API
 
 |API | Parameter | Description |
@@ -151,7 +151,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowInterstitial("Your UnitID");
         }
     }
-### 6.4 Impletemente Interstitial Listener
+### 6.4 Impletemente Interstitial Ad Listener
 
     JoyPacUniversalFunc.onSetInterstitialListener_onAdLoaded += onSetInterstitialListener_onAdLoaded;
     JoyPacUniversalFunc.onSetInterstitialListener_onAdFailedToLoad += onSetInterstitialListener_onAdFailedToLoad;
@@ -161,7 +161,7 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
     JoyPacUniversalFunc.onSetInterstitialListener_onEndPlaying += onSetInterstitialListener_onEndPlaying;
     
     
-## 7 Banner Ad
+## 7 Integrate Banner Ad
 ### 7.1 API
 
 |API | Parameter | Description |
@@ -187,15 +187,14 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowBanner("Your UnitID", JoyPacAdManager.JoyPacBannerAlign.BannerAlignBottom | JoyPacAdManager.JoyPacBannerAlign.BannerAlignHorizontalCenter);
         }
     }
-### 7.4 Impletemente Banner Listener
+### 7.4 Impletemente Banner Ad Listener
 
     JoyPacUniversalFunc.onSetBannerListener_onAdLoaded += onSetBannerListener_onAdLoaded;
     JoyPacUniversalFunc.onSetBannerListener_onShowSuccess += onSetBannerListener_onShowSuccess;
     JoyPacUniversalFunc.onSetBannerListener_onClick += onSetBannerListener_onClick;
     
-    
-    
-## 8 Native Banner Ad
+      
+## 8 Integrate Native Banner Ad
 ### 8.1 API
 
 |API | Parameter | Description |
@@ -221,8 +220,29 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
             JoyPac.Instance().ShowNativeBanner("Your UnitID", JoyPacAdManager.JoyPacBannerAlign.BannerAlignBottom | JoyPacAdManager.JoyPacBannerAlign.BannerAlignHorizontalCenter);
         }
     }
-### 8.4 Impletemente Banner Listener
+### 8.4 Impletemente Banner Ad Listener
 
     JoyPacUniversalFunc.onSetNativeBannerListener_onAdLoaded += onSetNativeBannerListener_onAdLoaded;
     JoyPacUniversalFunc.onSetNativeBannerListener_onShowSuccess += onSetBNativeannerListener_onShowSuccess;
     JoyPacUniversalFunc.onSetNativeBannerListener_onClick += onSetNativeBannerListener_onClick;
+    
+    
+## 9 Tracking Event
+### 9.1 API
+
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|Adjust_TrackEvent | string AdjustEventName | Adjust eventName |
+|GA_TrackEvent | string GAEventName, float eventValue | GA eventName and eventValue |
+|TrackEvent | string AdjustEventName, string GAEventName, float GAEventValue | AdjustEventName, GAEventName,  GAEventValue |
+|JoyPacEvent | string event_sort, string event_type, string event_position, string event_extra | Event classification |
+
+|JoyPacEvent | string event_sort, string event_type, string event_position, string event_extra |  Event classification |
+
+### 9.2 Sample Code
+
+    public void trackingEvent(string adjustEventName,string GAEventName,float GAEventValue)
+    {
+       JoyPac.Instance().TrackEvent(adjustEventName,GAEventName,GAEventValue);
+    }
+  
