@@ -68,16 +68,21 @@ Among them, GA_SDK_UNITY.unitypackage and Adjust_v4.23.2.unitypackage are Tracki
 
 2) Add NSAllowsArbitraryLoads to your app’s Info.plist to disable ATS restrictions
 
-3）If the Admob advertising platform SDK is imported, you also need to add GADApplicationIdentifier to the app’s Info.plist to configure Admob’s AppID.
+3) If the Admob advertising platform SDK is imported, you also need to add GADApplicationIdentifier to the app’s Info.plist to configure Admob’s AppID.
 
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-9488501426181082/7319780494</string>
     <key>GADIsAdManagerApp</key> <true/>
     
     
-### API 
+## API 
 
-Init sdk
+|API | Parameter | Description |
+| ------ | ------ |------ |
+|InitSDK | string JoyPacAppID | It needs to be obtained after creating an application in the JoyPac background |
+|InitSDK | string adjustToken, string GAKey, string GASecret | AdjustToken, GAKey and GASecret |
+|InitSDK | string JoyPacAppID,string adjustToken,string GAKey,string GASecret | JoyPacAppID, AdjustToken, GAKey and GASecret|
+
 
     /**
     JoyPacAppId: JoyPac AppID
