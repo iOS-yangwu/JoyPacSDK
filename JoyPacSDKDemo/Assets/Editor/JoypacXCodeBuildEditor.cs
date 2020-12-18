@@ -12,7 +12,7 @@ public class JoypacXCodeBuildEditor
     [PostProcessBuildAttribute(1)]
     public static void OnPostProcessBuild(BuildTarget target, string path) {
         if (target != BuildTarget.iOS) {
-            Debug.Log("Target is not iOS. XCodePostProcess will not run.");
+            Debug.Log("Target is not iOS. JoypacXCodeBuildEditor will not run.");
             return;
         }
 
