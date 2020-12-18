@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class JoyPacDemoScript : MonoBehaviour
 {
-    public Texture ButtonTexture;
-    public Texture TextTexture;
+    private Texture ButtonTexture;
+    private Texture TextTexture;
+    private Sprite bg;
+    private GameObject BackGround;
     private const string JoyPacSDkDemo = "JoyPacSDkDemo Log:        ";
 
     private const string JoyPacAppID = "b403ab2ef3";
@@ -31,6 +33,18 @@ public class JoyPacDemoScript : MonoBehaviour
 
     private string ABTestString= "未获取到在线参数";
     Image image;
+
+    private void Awake()
+    {
+
+        bg = Resources.Load("Textrues/background", typeof(Sprite)) as Sprite;
+        BackGround = GameObject.Find("BackGround");
+        BackGround.AddComponent<Image>().sprite = bg;
+
+        ButtonTexture = Resources.Load("Textrues/button", typeof(Texture)) as Texture;
+        TextTexture = Resources.Load("Textrues/text", typeof(Texture)) as Texture;
+
+    }
     public void Start()
     {
         //打印日志
