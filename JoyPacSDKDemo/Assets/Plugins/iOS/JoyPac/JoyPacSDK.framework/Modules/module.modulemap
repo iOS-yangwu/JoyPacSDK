@@ -1,6 +1,0 @@
-framework module JoyPacSDK {
-  umbrella header "JoyPacSDK.h"
-
-  export *
-  module * { export * }
-}

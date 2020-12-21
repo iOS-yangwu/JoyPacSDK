@@ -48,10 +48,6 @@
 		<data>
 		hi4aRQM7Yt2v+AnmkjaXBlfLVA4=
 		</data>
-		<key>Headers/AnyThinkAdatper.h</key>
-		<data>
-		cRD6POlhr7xYe6/vJFrEEDpqM6k=
-		</data>
 		<key>Headers/FMDB.h</key>
 		<data>
 		xceJ4tfa/qMtJSZE8L5nh4UE5v8=
@@ -98,7 +94,7 @@
 		</data>
 		<key>Headers/JPCAdvertManager.h</key>
 		<data>
-		QFapS/80UPbdBq8BDm9mlMtJMUk=
+		CDxKh7IRQKC5p8kN34trkXGNK3c=
 		</data>
 		<key>Headers/JPCAdvertUtils.h</key>
 		<data>
@@ -144,14 +140,6 @@
 		<data>
 		Dntguw3ZBvyfgJz4n5d8nPVookA=
 		</data>
-		<key>Headers/JPCNativeADView.h</key>
-		<data>
-		P2R1JEMumh3p4rrWuG8Rjvj3sHE=
-		</data>
-		<key>Headers/JPCOriginNavtiveAdView.h</key>
-		<data>
-		3QUE+s7XE/tGct6aLVuNiErNp1k=
-		</data>
 		<key>Headers/JPCProtocal.h</key>
 		<data>
 		WlRR59/9dd9SaHWszvuBYGTit5o=
@@ -175,6 +163,10 @@
 		<key>Headers/JPCUtils.h</key>
 		<data>
 		FymT2gz3ERDDNEYQAi18L2KxABA=
+		</data>
+		<key>Headers/JPHeader.h</key>
+		<data>
+		OpRUEPH0gOw6vP6isv4p6mbKWiM=
 		</data>
 		<key>Headers/JSONSerialization.h</key>
 		<data>
@@ -308,10 +300,6 @@
 		<data>
 		CPSjKgr8uCAJY1a7wvEwzo0YZ7w=
 		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		uDn2CDIZ3jk/eoc3PuD3Xm8GipU=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -434,17 +422,6 @@
 			<key>hash2</key>
 			<data>
 			UqS8J1kLZ8VWJAEd3jWo8/SCt1H+lOqJWIi77VmeV58=
-			</data>
-		</dict>
-		<key>Headers/AnyThinkAdatper.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cRD6POlhr7xYe6/vJFrEEDpqM6k=
-			</data>
-			<key>hash2</key>
-			<data>
-			4PdF/I6j7vHDKK56izx/qL9rahWaCDRreu6KFbLpad0=
 			</data>
 		</dict>
 		<key>Headers/FMDB.h</key>
@@ -572,11 +549,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QFapS/80UPbdBq8BDm9mlMtJMUk=
+			CDxKh7IRQKC5p8kN34trkXGNK3c=
 			</data>
 			<key>hash2</key>
 			<data>
-			dt+HaPnHUcK8zDeCjba6BXwYotFDOemHoC6ZY5NUb3I=
+			+MiJpoyCp9vOMbuQMarbBfaEjjQK1PAIGBAXPnHCQ0I=
 			</data>
 		</dict>
 		<key>Headers/JPCAdvertUtils.h</key>
@@ -700,28 +677,6 @@
 			squBDBoU+H3Sntj2XoAi1VN9vTxv2wBVHPwPgnQA0fc=
 			</data>
 		</dict>
-		<key>Headers/JPCNativeADView.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			P2R1JEMumh3p4rrWuG8Rjvj3sHE=
-			</data>
-			<key>hash2</key>
-			<data>
-			QEa3cRWPZxV1RoqTX2Hu6/8D9ypXCO5LEIvbkWAqibI=
-			</data>
-		</dict>
-		<key>Headers/JPCOriginNavtiveAdView.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3QUE+s7XE/tGct6aLVuNiErNp1k=
-			</data>
-			<key>hash2</key>
-			<data>
-			3Eg7BQeSRNV5m/tVKF2mWhnFvbEuFDRp/pVsxMNQ420=
-			</data>
-		</dict>
 		<key>Headers/JPCProtocal.h</key>
 		<dict>
 			<key>hash</key>
@@ -786,6 +741,17 @@
 			<key>hash2</key>
 			<data>
 			SAJZLPVDqi/Z5Eu1f03AUZQOJiVVo1J+GvzTpC2z7ms=
+			</data>
+		</dict>
+		<key>Headers/JPHeader.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OpRUEPH0gOw6vP6isv4p6mbKWiM=
+			</data>
+			<key>hash2</key>
+			<data>
+			yrTp84BTQrQeiqAwW9ykxvAEbNLeoWPgOWmGgxJoSzU=
 			</data>
 		</dict>
 		<key>Headers/JSONSerialization.h</key>
@@ -1138,17 +1104,6 @@
 			<key>hash2</key>
 			<data>
 			GkK1zt/d9zsomL4EWcSKhfvIO/9ZpKlVq6jYohinYQ0=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uDn2CDIZ3jk/eoc3PuD3Xm8GipU=
-			</data>
-			<key>hash2</key>
-			<data>
-			Lw/KF9AI1fshX6l1wg6XYVLRmD2vGgWcqp5wesVHxPM=
 			</data>
 		</dict>
 	</dict>
