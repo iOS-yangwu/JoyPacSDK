@@ -67,7 +67,7 @@ public class TrackEvent : MonoBehaviour
             JoyPac.Instance().TrackEvent("Adjust_TrackEventTest", "GA_TrackEventTest", 1);
 
         }
-        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.74f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
+        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.65f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
         if (GUI.Button(ReturnButton, "Return"))
         {
             SceneManager.LoadScene("MainScene");

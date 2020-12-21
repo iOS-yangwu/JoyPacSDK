@@ -53,12 +53,12 @@ public class ABTest : MonoBehaviour
         TextStyle.normal.textColor = Color.blue;
         TextStyle.normal.background = (Texture2D)TextTexture;
         ///ABTest
-        Rect GUITest = new Rect(0.10f * Screen.width, 0.45f * Screen.height, 0.80f * Screen.width, 0.10f * Screen.height);
+        Rect GUITest = new Rect(0.10f * Screen.width, 0.40f * Screen.height, 0.80f * Screen.width, 0.10f * Screen.height);
 
         GUI.Label(GUITest, ABTestString, TextStyle);
 
 
-        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.74f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
+        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.65f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
         if (GUI.Button(ReturnButton, "Return"))
         {
             SceneManager.LoadScene("MainScene");

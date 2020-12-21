@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+enum ADType
+{
+    Banner,
+    NativeBanner,
+    Interstitial,
+    Reward
+}
 public class Advertising : MonoBehaviour
 {
 
@@ -12,12 +20,13 @@ public class Advertising : MonoBehaviour
     private GameObject BackGround;
 
     private const string JoyPacAppID = "b403ab2ef3";
-  
-    
+
+
     public const string BannerUnitId = "DemoBN1";
     public const string NativeBannerUnitId = "DemoBN";
     public const string InterstitialUnitId = "DemoIV";
     public const string RewardUnitId = "DemoRV";
+
 
 
     public const string JoyPacSDkDemo = "JoyPacSDkDemo Log:        ";
@@ -31,6 +40,7 @@ public class Advertising : MonoBehaviour
     public bool isReadyNativeBanner = false;
 
 
+    
     private void Awake()
     {
         
@@ -42,6 +52,22 @@ public class Advertising : MonoBehaviour
 
     }
 
+    private string LoadFail(ADType type)
+    {
+        var str = string.Format("{0} Load failed / {0} 加载失败", type.ToString());
+        return str;
+    }
+        
+    private string Loading(ADType type)
+    {
+        var str = string.Format("{0} is loading / {0} 正在加载.........", type.ToString());
+        return str;
+    }
+    private string Completed(ADType type)
+    {
+        var str = string.Format("{0} is loading completed / {0} 加载完成", type.ToString());
+        return str;
+    }
     public void Start()
     {
         //打印日志
@@ -117,6 +143,7 @@ public class Advertising : MonoBehaviour
 
             Debug.Log(JoyPacSDkDemo + "Load Banner");
             JoyPac.Instance().LoadBanner(BannerUnitId);
+            OnGUIDebug.Instance.AddMsg(Loading(ADType.Banner));
         }
         Rect ShowBannerButton = new Rect(0.55f * Screen.width, 0.10f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
         if (BannerCanShow)
@@ -166,6 +193,8 @@ public class Advertising : MonoBehaviour
         {
             Debug.Log(JoyPacSDkDemo + "Load NativeBanner");
             JoyPac.Instance().LoadNativeBanner(NativeBannerUnitId);
+
+            OnGUIDebug.Instance.AddMsg(Loading(ADType.NativeBanner));
         }
 
         Rect ShowNativeBannerButton = new Rect(0.55f * Screen.width, 0.28f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
@@ -217,6 +246,8 @@ public class Advertising : MonoBehaviour
         {
             Debug.Log(JoyPacSDkDemo + "Load Interstitial");
             JoyPac.Instance().LoadInterstitial(InterstitialUnitId);
+
+            OnGUIDebug.Instance.AddMsg(Loading(ADType.Interstitial));
         }
         Rect showInterstitialButton = new Rect(0.55f * Screen.width, 0.46f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
         if (InterstitialCanShow)
@@ -245,6 +276,8 @@ public class Advertising : MonoBehaviour
         {
             Debug.Log(JoyPacSDkDemo + "Load RewardVideo");
             JoyPac.Instance().LoadRewardVideo(RewardUnitId);
+
+            OnGUIDebug.Instance.AddMsg(Loading(ADType.Reward));
         }
         Rect ShowRewardVideoButton = new Rect(0.55f * Screen.width, 0.56f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
         if (RewardCanShow)
@@ -264,10 +297,14 @@ public class Advertising : MonoBehaviour
         #endregion
 
 
-        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.74f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
+        Rect ReturnButton = new Rect(0.10f * Screen.width, 0.65f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
         if (GUI.Button(ReturnButton, "Return"))
         {
             SceneManager.LoadScene("MainScene");
+
+            JoyPac.Instance().RemoveBanner();
+            JoyPac.Instance().RemoveNativeBanner();
+            OnGUIDebug.Instance.RemoveAll();
         }
     }
 
@@ -308,12 +345,13 @@ public class Advertising : MonoBehaviour
     private void RewardListener_onRewardedVideoAdFailedToLoad()
     {
         Debug.Log(JoyPacSDkDemo + "RewardListener_onRewardedVideoAdFailedToLoad");
+        OnGUIDebug.Instance.AddMsg(LoadFail(ADType.Reward));
     }
 
     private void RewardListener_onRewardedVideoAdLoaded()
     {
         RewardCanShow = true;
-
+        OnGUIDebug.Instance.AddMsg(Completed(ADType.Reward));
         Debug.Log(JoyPacSDkDemo + "RewardListener_onRewardedVideoAdLoaded");
     }
     #endregion
@@ -360,11 +398,13 @@ public class Advertising : MonoBehaviour
     private void InterstitialListener_onAdFailedToLoad()
     {
         Debug.Log(JoyPacSDkDemo + "InterstitialListener_onAdFailedToLoad");
+        OnGUIDebug.Instance.AddMsg(LoadFail(ADType.Interstitial));
     }
 
     private void InterstitialListener_onAdLoaded()
     {
         InterstitialCanShow = true;
+        OnGUIDebug.Instance.AddMsg(Completed(ADType.Interstitial));
         Debug.Log(JoyPacSDkDemo + "InterstitialListener_onAdLoaded");
     }
 
@@ -386,12 +426,14 @@ public class Advertising : MonoBehaviour
     private void NativeBannerListener_onAdFailedToLoad()
     {
         Debug.Log(JoyPacSDkDemo + "NativeBannerListener_onAdFailedToLoad");
+        OnGUIDebug.Instance.AddMsg(LoadFail(ADType.NativeBanner));
     }
 
     private void NativeBannerListener_onAdLoaded()
     {
         NativeBannerCanShow = true;
         isReadyNativeBanner = true;
+        OnGUIDebug.Instance.AddMsg(Completed(ADType.NativeBanner));
         Debug.Log(JoyPacSDkDemo + "NativeBannerListener_onAdLoaded");
     }
     #endregion
@@ -421,12 +463,15 @@ public class Advertising : MonoBehaviour
     private void BannerListener_onAdFailedToLoad()
     {
         Debug.Log(JoyPacSDkDemo + "BannerListener_onAdFailedToLoad");
+        OnGUIDebug.Instance.AddMsg(LoadFail(ADType.Banner));
+
     }
 
     private void BannerListener_onAdLoaded()
     {
         BannerCanShow = true;
         isReadyBanner = true;
+        OnGUIDebug.Instance.AddMsg(Completed(ADType.Banner));
         Debug.Log(JoyPacSDkDemo + "BannerListener_onAdLoaded");
 
     }
