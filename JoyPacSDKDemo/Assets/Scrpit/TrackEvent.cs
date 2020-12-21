@@ -49,14 +49,19 @@ public class TrackEvent : MonoBehaviour
             Debug.Log(JoyPacSDkDemo + "Only TrackEvent GA");
             JoyPac.Instance().GA_TrackEvent("GA_TrackEventTest", 1);
 
+            OnGUIDebug.Instance.AddMsg("Only TrackEvent GA");
+
         }
 
         Rect Adjust_TrackEventButton = new Rect(0.10f * Screen.width, 0.25f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
 
         if (GUI.Button(Adjust_TrackEventButton, "Only TrackEvent  Adjust"))
         {
-            Debug.Log(JoyPacSDkDemo + "Only TrackEvent  Adjust");
+            Debug.Log(JoyPacSDkDemo + "Only TrackEvent Adjust");
             JoyPac.Instance().Adjust_TrackEvent("Adjust_TrackEventTest");
+
+
+            OnGUIDebug.Instance.AddMsg("Only TrackEvent Adjust");
 
         }
         Rect TrackEventButton = new Rect(0.10f * Screen.width, 0.40f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
@@ -66,11 +71,14 @@ public class TrackEvent : MonoBehaviour
             Debug.Log(JoyPacSDkDemo + "TrackEvent GA and Adjust");
             JoyPac.Instance().TrackEvent("Adjust_TrackEventTest", "GA_TrackEventTest", 1);
 
+            OnGUIDebug.Instance.AddMsg("TrackEvent GA and Adjust");
+
         }
         Rect ReturnButton = new Rect(0.10f * Screen.width, 0.65f * Screen.height, 0.80f * Screen.width, 0.05f * Screen.height);
         if (GUI.Button(ReturnButton, "Return"))
         {
             SceneManager.LoadScene("MainScene");
+            OnGUIDebug.Instance.RemoveAll();
         }
     }
 
