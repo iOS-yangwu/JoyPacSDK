@@ -41,7 +41,7 @@ public class MainScript: MonoBehaviour
         //only init JoyPacSDK  
         //JoyPac.Instance().InitSDK(JoyPacAppID);
 
-        //init  init Adjust和GA 不使用广告和abtest功能 Do not use ads or ABTest functionality
+        //init  init Adjust和GA 不使用广告和abtest功能 / Do not use ads or ABTest functionality
         //JoyPac.Instance().InitSDK(AdjustToken, GAKey, GASecret);
 
         //SDK init JoyPacSDK Adjust和GA 

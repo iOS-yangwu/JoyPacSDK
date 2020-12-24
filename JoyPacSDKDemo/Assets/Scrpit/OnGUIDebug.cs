@@ -23,7 +23,7 @@ public class OnGUIDebug:MonoBehaviour
     }
 
 
-    public int FontSize = 20;
+    public int FontSize = (int)(0.030f * Screen.width);
 
     public int LabelHeight = 40;
 

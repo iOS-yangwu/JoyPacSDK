@@ -40,7 +40,11 @@ public class Advertising : MonoBehaviour
     public bool isReadyNativeBanner = false;
 
 
-    
+   
+    GUIStyle fontstyle = null;
+    public int FontSize = 10;
+
+    public Image image, image1, image2, image3;
     private void Awake()
     {
         
@@ -49,6 +53,18 @@ public class Advertising : MonoBehaviour
         BackGround.AddComponent<Image>().sprite = bg;
 
         ButtonTexture = Resources.Load("Textrues/button", typeof(Texture)) as Texture;
+
+        image.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0.34f * Screen.height, 0);
+        image1.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0.16f * Screen.height, 0);
+        image2.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0.026f * Screen.height, 0);
+        image3.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, -(0.076f * Screen.height), 0);
+
+
+        image.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 0.18f * Screen.height);
+        image1.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 0.18f * Screen.height);
+        image2.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 0.070f * Screen.height);
+        image3.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 0.070f * Screen.height);
+
 
     }
 
@@ -76,9 +92,6 @@ public class Advertising : MonoBehaviour
 
         //only init JoyPacSDK  
         JoyPac.Instance().InitSDK(JoyPacAppID);
-
-        
-
 
     }
     private void OnEnable()
@@ -125,6 +138,7 @@ public class Advertising : MonoBehaviour
     public void OnGUI()
     {
 
+       
         GUI.skin.button.fontSize = (int)(0.030f * Screen.width);
 
         GUIStyle CanShowStyle = new GUIStyle();
@@ -133,8 +147,14 @@ public class Advertising : MonoBehaviour
         CanShowStyle.normal.textColor = Color.white;
         CanShowStyle.normal.background = (Texture2D)ButtonTexture;
 
-       
 
+        fontstyle = new GUIStyle();
+
+        fontstyle.fontSize = (int)(0.050f * Screen.width);
+
+        fontstyle.normal.textColor = Color.red;
+        Rect lable = new Rect(0.40f * Screen.width, 0.07f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
+        GUI.Label(lable,"banner", fontstyle);
         //Banner
         #region Banner
         Rect LoadBannerButton = new Rect(0.10f * Screen.width, 0.10f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
@@ -185,7 +205,8 @@ public class Advertising : MonoBehaviour
             JoyPac.Instance().HideBanner();
         }
         #endregion
-
+        Rect NativeBanner = new Rect(0.40f * Screen.width, 0.25f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
+        GUI.Label(NativeBanner, "NativeBanner", fontstyle);
         //NativeBanner
         #region NativeBanner
         Rect LoadNativeBannerButton = new Rect(0.10f * Screen.width, 0.28f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
@@ -238,7 +259,8 @@ public class Advertising : MonoBehaviour
         }
         #endregion
 
-
+        Rect Interstitial = new Rect(0.40f * Screen.width, 0.43f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
+        GUI.Label(Interstitial, "Interstitial", fontstyle);
         //Interstitial
         #region Interstitial
         Rect loadInterstitialButton = new Rect(0.10f * Screen.width, 0.46f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
@@ -267,7 +289,8 @@ public class Advertising : MonoBehaviour
 
         #endregion
 
-
+        Rect RewardVideo = new Rect(0.40f * Screen.width, 0.53f * Screen.height, 0.35f * Screen.width, 0.05f * Screen.height);
+        GUI.Label(RewardVideo, "RewardVideo", fontstyle);
 
         //RewardVideo
         #region RewardVideo
